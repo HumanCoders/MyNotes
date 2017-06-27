@@ -1,0 +1,2 @@
+Ateliers de la **[formation Ruby on Rails](https://www.humancoders.com/formations/ruby-on-rails "Formation Ruby on Rails chez Human Coders")** chez **[Human Coders](https://www.humancoders.com "Human Coders")**.
+Ces ateliers consistent au développement d'une application de gestion de notes avec recherche, pagination, authentification et interface d'administration. Cette application est développé avec Rails 5.1.
