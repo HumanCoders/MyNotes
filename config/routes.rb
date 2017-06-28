@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'welcome#hello'
-
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'welcome#hello'
+  get "welcome/hello", to: "welcome#hello"
+  get "welcome/goodbye", to: "welcome#goodbye"
 end
