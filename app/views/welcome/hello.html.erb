@@ -1,1 +1,5 @@
-<h1>Hello <%= @message %> !</h1>
+<% if @message %>
+  <h1>Hello <%= @message %> !</h1>
+<% else %>
+  <h1>Hello world !</h1>
+<% end %>
