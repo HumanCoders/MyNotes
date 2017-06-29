@@ -1,4 +1,5 @@
 class Note < ApplicationRecord
+  paginates_per 3
   validates :title, presence: true
 
   def self.search(keywords)

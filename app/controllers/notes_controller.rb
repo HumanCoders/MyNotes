@@ -2,12 +2,12 @@ class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = Note.page(params[:page])
   end
 
   def search
     @keywords = params[:keywords]
-    @notes = Note.search(@keywords)
+    @notes = Note.search(@keywords).page(params[:page])
     render :index
   end
 

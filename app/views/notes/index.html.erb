@@ -22,4 +22,7 @@
     </tr>
   <% end %>
 </table>
+
+<div><%= paginate @notes %></div>
+
 <%= link_to 'New Note', new_note_path, class: "btn btn-default btn-lg" %>
