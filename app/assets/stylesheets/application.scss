@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sass/assets/stylesheets/_bootstrap-sprockets";
+@import "bootstrap-sass/assets/stylesheets/_bootstrap";
+
+.main > .container {
+  padding: 60px 15px 0;
+}
+
+.main .container {
+  max-width: 730px
+}
