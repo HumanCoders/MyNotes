@@ -5,6 +5,12 @@ class NotesController < ApplicationController
     @notes = Note.all
   end
 
+  def search
+    @keywords = params[:keywords]
+    @notes = Note.search(@keywords)
+    render :index
+  end
+
   def show
   end
 
