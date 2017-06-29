@@ -1,13 +1,22 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
 
   def index
-    @notes = Note.page(params[:page])
+    if user_signed_in?
+      @notes = current_user.notes.page(params[:page])
+    else
+      @notes = Note.page(params[:page])
+    end
   end
 
   def search
     @keywords = params[:keywords]
-    @notes = Note.search(@keywords).page(params[:page])
+    if user_signed_in?
+      @notes = current_user.notes.search(@keywords).page(params[:page])
+    else
+      @notes = Note.search(@keywords).page(params[:page])
+    end
     render :index
   end
 
@@ -20,6 +29,7 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
+    @note.user = current_user
     if @note.save
       redirect_to notes_path, notice: 'Note was successfully created.'
     else

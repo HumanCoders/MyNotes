@@ -12,17 +12,25 @@
 <table class="table table-bordered table-striped">
   <tr>
     <th>Title</th>
-    <th colspan="2"></th>
+    <th>User</th>
+    <% if user_signed_in? %>
+      <th colspan="2"></th>
+    <% end %>
   </tr>
   <% @notes.each do |note| %>
     <tr>
       <td><%= link_to note.title, note %></td>
-      <td><%= link_to 'Edit', edit_note_path(note) %></td>
-      <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= note.user %></td>
+      <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>
 
 <div><%= paginate @notes %></div>
 
-<%= link_to 'New Note', new_note_path, class: "btn btn-default btn-lg" %>
+<% if user_signed_in? %>
+  <%= link_to 'New Note', new_note_path, class: "btn btn-default btn-lg" %>
+<% end %>
