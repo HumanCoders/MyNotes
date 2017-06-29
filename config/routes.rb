@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "notes", to: "notes#index", as: :notes
   get "notes/:id", to: "notes#show", as: :note
+  delete "notes/:id", to: "notes#destroy"
 
   get "welcome/hello/(:message)", to: "welcome#hello", as: :hello_welcome
   get "welcome/goodbye", to: "welcome#goodbye", as: :goodbye_welcome
