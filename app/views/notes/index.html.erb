@@ -4,7 +4,7 @@
   </tr>
   <% @notes.each do |note| %>
     <tr>
-      <td><%= note.title %></td>
+      <td><%= link_to note.title, note %></td>
     </tr>
   <% end %>
 </table>
