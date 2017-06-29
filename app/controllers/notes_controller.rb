@@ -21,7 +21,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     if @note.save
-      redirect_to notes_path
+      redirect_to notes_path, notice: 'Note was successfully created.'
     else
       render :new
     end
@@ -32,7 +32,7 @@ class NotesController < ApplicationController
 
   def update
     if @note.update(note_params)
-      redirect_to notes_path
+      redirect_to notes_path, notice: 'Note was successfully updated.'
     else
       render :edit
     end
@@ -40,7 +40,7 @@ class NotesController < ApplicationController
 
   def destroy
     @note.destroy
-    redirect_to notes_path
+    redirect_to notes_path, notice: 'Note was successfully destroyed.'
   end
 
   protected
