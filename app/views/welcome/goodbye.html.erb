@@ -1,2 +1,8 @@
 <h1>Goodbye !</h1>
 <%= link_to "Link to hello", hello_welcome_path("Matt") %>
+
+<%= form_tag(hello_welcome_path, :method => :get) do %>
+  <%= label_tag(:message, "Message :") %>
+  <%= text_field_tag(:message) %>
+  <%= submit_tag("Show hello with message") %>
+<% end %>
